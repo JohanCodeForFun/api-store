@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts">
-import { propsToAttrMap } from '@vue/shared';
 import { computed, defineComponent, PropType } from 'vue';
 import Job from '../types/Job'
 import OrderTerm from '../types/OrderTerm'
