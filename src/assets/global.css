@@ -2,3 +2,7 @@ body {
 	background-color: whitesmoke;
 	font-family: 'Courier New', Courier, monospace;
 }
+
+h1 {
+	letter-spacing: 4px;
+}
