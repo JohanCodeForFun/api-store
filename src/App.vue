@@ -3,9 +3,10 @@
     <Header />
     <header>
       <div class="title">
-        <img src="./assets/heart.svg" alt="site logo">
         <h1>Amazing Store</h1>
       </div>
+    <ProductList :products="products" :order="order"/>
+
       <div class="order">
         <button @click="handleClick('title')">Order by Title</button>
         <button @click="handleClick('salary')">Order by Salary</button>
@@ -13,7 +14,6 @@
       </div>
     </header>
 
-    <ProductList :products="products" :order="order"/>
 
 
     <JobList :jobs="jobs" :order="order" />
@@ -30,9 +30,8 @@ import OrderTerm from './types/OrderTerm'
 
 export default defineComponent({
   name: 'App',
-  components: { JobList, Header },
+  components: { JobList, Header, ProductList },
   setup() {
-    let products = ref<[]>;
 
     const jobs = ref<Job[]>([
       { title: 'farm worker', location: 'lon lon ranch', salary: 30000, id: '1' },
@@ -48,13 +47,14 @@ export default defineComponent({
       order.value = term
     }
 
+    const products = ref<[]>([]);
     // fix products type & syntax
     async function fetchAllProducts() {
-      const res = await fetch('https://fakestoreapi.com/products');
+      const res = await fetch('https://fakestoreapi.com/products')
       const data = await res.json();
-      products = await data
+      products.value = await data
       console.log(products)
-      return data;
+      return {products};
     }
 
 
