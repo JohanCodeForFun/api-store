@@ -13,11 +13,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import Product from '../types/Product'
 
 export default defineComponent({
 	props: {
 		products: {
-			type: Array
+			type: Array as PropType<Product[]>
 		}
 	}
 })
