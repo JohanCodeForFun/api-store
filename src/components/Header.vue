@@ -1,13 +1,14 @@
 <template>
 	<header>
-		<nav>
-			|||
+		<nav class="nav-menu">
+			<i class="fa-solid fa-bars fa-2xl"></i>
+			<img src="../assets/logo.svg" alt="site logo" class="logo">
 		</nav>
-		<img src="../assets/logo.svg" alt="site logo" class="logo">
-		<div class="cart-nav">
-			P F C
-			<!-- icons for,
-			profile, favorites, cart -->
+		<div class="nav-cart">
+			<i class="fa-regular fa-user fa-2xl"></i>
+			<i class="fa-solid fa-magnifying-glass fa-2xl"></i>
+			<i class="fa-regular fa-heart fa-2xl"></i>
+			<i class="fa-solid fa-bag-shopping fa-2xl"></i>
 		</div>
 	</header>
 </template>
@@ -26,6 +27,15 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+}
+
+.nav-menu,
+.nav-cart,
+.nav-logo {
+	display: flex;
+	gap: 1.6rem;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .logo {
