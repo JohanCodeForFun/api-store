@@ -28,7 +28,7 @@ export default defineComponent({
 		justify-content: space-around;
 		height: 40vh;
 		width: 100vw;
-		background-color: yellow;
+		background-color: #B6E2D3;
 	}
 	h3 {
 		text-align: center;

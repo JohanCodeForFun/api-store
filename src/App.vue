@@ -84,6 +84,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+/* Colors */
+/* https://www.canva.com/colors/color-palettes/rosettes-and-cream/
+Hot Pink, 
+#EF7C8E
+Cream
+#FAE8E0
+Spearmint
+#B6E2D3
+Rosewater
+#D8A7B1 */
+
 .hero-content {
   padding: 1rem;
   display: flex;
