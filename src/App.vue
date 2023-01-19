@@ -1,20 +1,22 @@
 <template>
   <div class="app">
     <Header />
-    <header>
-      <div class="title">
-        <h1>Amazing Store</h1>
-      </div>
-    <ProductList :products="products" :order="order"/>
+
+    <div class="hero-content">
+      <HeroMessage title="Sale, up to 70% off!"/>
+      <HeroInspiration title="Get the spring look"/>
+      <HeroProduct title="Find your jacket for the spring season"/>
+    </div>
+      
+    <ProductList :products="products" :orderProduct="order"/>
+
+
 
       <div class="order">
         <button @click="handleClick('title')">Order by Title</button>
         <button @click="handleClick('salary')">Order by Salary</button>
         <button @click="handleClick('location')">Order by Location</button>
       </div>
-    </header>
-
-
 
     <JobList :jobs="jobs" :order="order" />
   </div>
@@ -27,10 +29,14 @@ import ProductList from './components/ProductList.vue';
 import Header from './components/Header.vue';
 import Job from './types/Job'
 import OrderTerm from './types/OrderTerm'
+import OrderTermProducts from './types/OrderTermProducts';
+import HeroProduct from './components/HeroProduct.vue';
+import HeroInspiration from './components/HeroInspiration.vue';
+import HeroMessage from './components/HeroMessage.vue';
 
 export default defineComponent({
   name: 'App',
-  components: { JobList, Header, ProductList },
+  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, Header, ProductList },
   setup() {
 
     const jobs = ref<Job[]>([
@@ -42,6 +48,12 @@ export default defineComponent({
     ])
 
     const order = ref<OrderTerm>('title');
+
+    const orderProduct = ref<OrderTermProducts>('name')
+
+    const handleClickProducts = (term: OrderTermProducts) => {
+      orderProduct.value = term
+    }
 
     const handleClick = (term: OrderTerm) => {
       order.value = term
@@ -72,6 +84,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.hero-content {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
 header {
   text-align: center;
 }
