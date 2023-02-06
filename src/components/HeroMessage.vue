@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h3>{{ title }}</h3>
-		<img src="src/assets/freestocks-_3Q3tsJ01nc-unsplash.jpg" alt="deals">
+		<img class="img-fluid" src="src/assets/freestocks-_3Q3tsJ01nc-unsplash.jpg" alt="deals">
 		<!-- Photo by <a href="https://unsplash.com/@freestocks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">freestocks</a> on <a href="https://unsplash.com/s/photos/fashion?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
 	 <button>Get the Deals here!</button>

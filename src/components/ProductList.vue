@@ -1,13 +1,20 @@
 <template>
 	<div class="product-list">
 		<!-- <p>Ordered by {{ order }}</p> -->
-		<transition-group name="list" tag="ul">
-			<li v-for="product in products" :key="product.id">
-				<p>{{ product.title }}</p>
-				<img class="img product" :src="product.image" :alt="product.title">
-			</li>
+		<transition-group name="list" tag="div">
+			<div v-for="product in products" :key="product.id">
+			<div class="card" style="width: 18rem;">
+				<img :src="product.image" class="card-img-top" :alt="product.title">
+				<div class="card-body">
+					<h5 class="card-title">{{ product.title }}</h5>
+					<p class="card-text">{{ product.description }}</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<span>Price: {{ product.price }}</span>
+					<!-- <span>Review: {{ product.review }}</span> -->
+				</div>
+			</div>
+		</div>
 		</transition-group>
-		HERE
 	</div>
 </template>
 
@@ -39,8 +46,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-img {
-	width: 200px;
-	height: 300px;
-}
+
 </style>

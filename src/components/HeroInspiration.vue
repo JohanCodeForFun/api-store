@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h3>{{ title }}</h3>
-		<img src="src/assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
+		<img class="img-fluid" src="src/assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
 		<!-- Photo by <a href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a> on <a href="https://unsplash.com/photos/gYdjZzXNWlg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
 		<button>Get spring look ideas here</button>
@@ -34,8 +34,7 @@ export default defineComponent({
 		text-align: center;
 	}
 	img {
-		width: 300px;
-		height: 150px;
+		position: absolute;
 	}
 	button {
 		margin: .5rem;
