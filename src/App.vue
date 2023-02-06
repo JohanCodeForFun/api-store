@@ -34,10 +34,14 @@ import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
 import HeroMessage from './components/HeroMessage.vue';
 
+import { useProductStore } from './stores/ProductStore';
+    // remeber to add store below in return statement
+
 export default defineComponent({
   name: 'App',
   components: { HeroInspiration, HeroMessage, HeroProduct, JobList, Header, ProductList },
   setup() {
+    const store = useProductStore();
 
     const jobs = ref<Job[]>([
       { title: 'farm worker', location: 'lon lon ranch', salary: 30000, id: '1' },
@@ -72,7 +76,8 @@ export default defineComponent({
 
     fetchAllProducts()
 
-    return { jobs, handleClick, order, products }
+    // remeber to add store below
+  return { jobs, handleClick, order, products, /* add store */ }
   },
   // data() {
   //   return {
@@ -86,7 +91,7 @@ export default defineComponent({
 <style scoped>
 
 /* Colors */
-/* https://www.canva.com/colors/color-palettes/rosettes-and-cream/
+/* 
 Hot Pink, 
 #EF7C8E
 Cream
