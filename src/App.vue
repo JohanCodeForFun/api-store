@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Header />
+    <NavBar />
 
     <div class="hero-content">
       <HeroMessage title="Sale, up to 70% off!"/>
@@ -26,7 +26,7 @@
 import { defineComponent, ref } from 'vue';
 import JobList from './components/JobList.vue';
 import ProductList from './components/ProductList.vue';
-import Header from './components/Header.vue';
+import NavBar from './components/NavBar.vue';
 import Job from './types/Job'
 import OrderTerm from './types/OrderTerm'
 import OrderTermProducts from './types/OrderTermProducts';
@@ -39,7 +39,7 @@ import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
   name: 'App',
-  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, Header, ProductList },
+  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList },
   setup() {
     const store = useProductStore();
 
