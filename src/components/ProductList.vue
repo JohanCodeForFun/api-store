@@ -1,21 +1,34 @@
 <template>
-	<div class="product-list">
-		<!-- <p>Ordered by {{ order }}</p> -->
-		<transition-group name="list" tag="div">
-			<div v-for="product in products" :key="product.id">
-			<div class="card" style="width: 18rem;">
-				<img :src="product.image" class="card-img-top" :alt="product.title">
-				<div class="card-body">
-					<h5 class="card-title">{{ product.title }}</h5>
-					<p class="card-text">{{ product.description }}</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-					<span>Price: {{ product.price }}</span>
-					<!-- <span>Review: {{ product.review }}</span> -->
+
+	<!-- <p>Ordered by {{ order }}</p> -->
+	<transition-group name="list" tag="div">
+		<div class="container-lg">
+			<!-- varför fungerar inte justify content på liten skärm? -->
+			<div class="row justify-content-center">
+				<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in products" :key="product.id">
+					<div class="card" style="width: 18rem;">
+						<img :src="product.image" class="card-img-top" :alt="product.title">
+						<div class="card-body">
+							<h5 class="card-title">{{ product.title }}</h5>
+							<!-- <p class="card-text">{{ product.description }}</p> -->
+							<div class="row align-items-center">
+								<div class="col-5">	
+									<a href="#" class="btn btn-primary">Buy Now</a>
+								</div>
+								<div class="col-3">
+									<i class="fa-regular fa-heart fa-2xl"></i>
+								</div>
+								<div class="col-4">	
+								<span>Price: ${{ product.price }}</span>
+								</div>
+							</div>
+							<!-- <span>Review: {{ product.review }}</span> -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		</transition-group>
-	</div>
+	</transition-group>
 </template>
 
 <script lang="ts">

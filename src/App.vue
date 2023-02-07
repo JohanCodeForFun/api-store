@@ -8,7 +8,11 @@
       <HeroProduct title="Find your jacket for the spring season"/>
     </div>
       
-    <ProductList :products="products" :orderProduct="order"/>
+    <div class="container">
+      <div class="row">
+        <ProductList :products="products" :orderProduct="order"/>
+      </div>
+    </div>
 
 
 

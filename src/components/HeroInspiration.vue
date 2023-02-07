@@ -1,10 +1,22 @@
 <template>
-	<div>
-		<h3>{{ title }}</h3>
-		<img class="img-fluid" src="src/assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="px-4 py-5 my-5 text-center">
+					<img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72"
+						height="57">
+					<h3 class="display-5 fw-bold">{{ title }}</h3>
+					<div class="col-lg-6 mx-auto">
+						<img class="img-fluid" src="src/assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
 		<!-- Photo by <a href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a> on <a href="https://unsplash.com/photos/gYdjZzXNWlg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
    -->
-		<button>Get spring look ideas here</button>
+						<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+							<button type="button" class="btn btn-info btn-lg px-4 gap-3">Get spring look ideas here</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -34,14 +46,7 @@ export default defineComponent({
 		text-align: center;
 	}
 	img {
-		position: absolute;
-	}
-	button {
-		margin: .5rem;
-		padding: .5rem 1rem;
-		border-radius: .5rem;
-		border-style: none;
-		background-color: antiquewhite;
-		font-weight: 700;
-	}
+	width: 300px;
+	height: 150px;
+}
 </style>
