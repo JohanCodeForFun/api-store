@@ -2,11 +2,11 @@
   <div class="app">
     <NavBar />
 
-    <!-- <div class="hero-content">
+    <div class="hero-content">
       <HeroMessage title="Sale, up to 70% off!"/>
       <HeroInspiration title="Get the spring look"/>
       <HeroProduct title="Find your jacket for the spring season"/>
-    </div> -->
+    </div>
 
     <div class="container">
       <div class="row">
@@ -32,6 +32,7 @@
     </div>
 
     <JobList :jobs="jobs" :order="order" />
+    <FooterComponent />
   </div>
 </template>
 
@@ -47,6 +48,7 @@ import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
 import HeroMessage from './components/HeroMessage.vue';
 import axios from 'axios'
+import FooterComponent from './components/FooterComponent.vue';
 
 
 import { useProductStore } from './stores/ProductStore';
@@ -54,7 +56,7 @@ import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
   name: 'App',
-  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList },
+  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList, FooterComponent },
   setup() {
     const store = useProductStore();
 
