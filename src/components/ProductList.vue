@@ -16,7 +16,7 @@
 						</a>
 						<div class="card-body">
 							<h5 class="card-title">{{ product.title }}</h5>
-							<p class="card-text">{{ product.rating }}</p>
+							<p class="card-text">{{ product.rating.rate }}</p>
 							<div class="row align-items-center">
 								<div class="col-3">
 									<a href="#" class="btn btn-primary">
@@ -59,6 +59,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
+		// sorting function to sort according to id, title and price
 		const orderedProducts = computed(() => {
 			return [...props.products].sort((a: Product, b: Product) => {
 				return a[props.order] > b[props.order] ? 1 : -1
