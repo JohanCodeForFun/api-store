@@ -2,5 +2,6 @@
 
 ## Webshop built with:
 - Vue
+- Pinia
 - TypeScript
 - Bootstrap
