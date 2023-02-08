@@ -10,12 +10,20 @@
 
     <div class="container">
       <div class="row">
-        <ProductList :products="products" :orderProduct="order" />
+        <div class="col-4">
+          <button @click="handleClickProducts('id')" class="btn btn-primary">Order by id</button>
+        </div>
+        <div class="col-4">
+          <button @click="handleClickProducts('title')" class="btn btn-primary">Order by title</button>
+        </div>
+        <div class="col-4">
+          <button @click="handleClickProducts('price')" class="btn btn-primary">Order by price</button>
+        </div>
+        <ProductList :products="products" :order="orderProduct" />
       </div>
     </div>
 
-
-
+    <!-- hyrule jobs below -->
     <div class="order">
       <button @click="handleClick('title')">Order by Title</button>
       <button @click="handleClick('salary')">Order by Salary</button>
@@ -58,23 +66,19 @@ export default defineComponent({
     ])
 
     const order = ref<OrderTerm>('title');
-
-    const orderProduct = ref<OrderTermProducts>('title')
-
-    const handleClickProducts = (term: OrderTermProducts) => {
-      orderProduct.value = term
+      const handleClick = (term: OrderTerm) => {
+      order.value = term
     }
 
-    const handleClick = (term: OrderTerm) => {
-      order.value = term
+    const orderProduct = ref<OrderTermProducts>('title')
+    const handleClickProducts = (term: OrderTermProducts) => {
+      orderProduct.value = term
     }
 
     const products = ref<[]>([]);
     async function fetchAllProducts() {
       const res = await axios.get('https://fakestoreapi.com/products')
         .then(response => products.value = response.data)
-      console.log({ products }, products)
-      // why is my products returned as object?
       return { products };
     }
 
@@ -82,7 +86,7 @@ export default defineComponent({
     fetchAllProducts()
 
     // remeber to add store below
-    return { jobs, handleClick, order, products, handleClickProducts /* add store */ }
+    return { jobs, handleClick, order, products, orderProduct, handleClickProducts /* add store */ }
   },
 })
 </script>
