@@ -1,25 +1,33 @@
 <template>
 
-	<!-- <p>Ordered by {{ order }}</p> -->
+	<p>Ordered by {{ order }}</p>
 	<transition-group name="list" tag="div">
 		<div class="container-lg">
 			<!-- varför fungerar inte justify content på liten skärm? -->
 			<div class="row justify-content-center">
-				<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in products" :key="product.id">
+				<div v-if="!products?.length">
+					<h3>Loading items...</h3>
+				</div>
+				<div v-else class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in products" :key="product.id">
 					<div class="card" style="width: 18rem;">
-						<img :src="product.image" class="card-img-top" :alt="product.title">
+						<!-- add RouterLink -->
+						<a href="#">
+							<img :src="product.image" class="card-img-top" :alt="product.title">
+						</a>
 						<div class="card-body">
 							<h5 class="card-title">{{ product.title }}</h5>
-							<!-- <p class="card-text">{{ product.description }}</p> -->
+							<p class="card-text">{{ product.rating }}</p>
 							<div class="row align-items-center">
-								<div class="col-5">	
-									<a href="#" class="btn btn-primary">Buy Now</a>
-								</div>
 								<div class="col-3">
-									<i class="fa-regular fa-heart fa-2xl"></i>
+									<a href="#" class="btn btn-primary">
+										<i class="fa-solid fa-circle-info fa-xl"></i>
+									</a>
 								</div>
-								<div class="col-4">	
-								<span>Price: ${{ product.price }}</span>
+								<div class="col-5">
+									<a href="#" class="btn btn-success">Buy Now</a>
+								</div>
+								<div class="col-4">
+									<h5 class="card-text">${{ product.price }}</h5>
 								</div>
 							</div>
 							<!-- <span>Review: {{ product.review }}</span> -->
@@ -35,25 +43,29 @@
 import { computed, defineComponent, PropType } from 'vue';
 import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
+import { useProductStore } from '../stores/ProductStore';
+
+
 
 export default defineComponent({
 	props: {
 		products: {
+			required: true,
 			type: Array as PropType<Product[]>
 		},
 		order: {
 			required: true,
 			type: String as PropType<OrderTermProducts>
 		},
-		// setup(props) {
-		// 	const orderedProducts = computed(() => {
-		// 		return [...props.products].sort((a: Product, b:Product) => {
-		// 			return a[props.order] > b[props.order] ? 1 : -1
-		// 		})
-		// 	})
+	},
+	setup(props) {
+		const orderedProducts = computed(() => {
+			return [...props.products].sort((a: Product, b: Product) => {
+				return a[props.order] > b[props.order] ? 1 : -1
+			})
+		})
 
-		// 	return { orderedProducts }
-		// } 
+		return { orderedProducts }
 	}
 })
 </script>

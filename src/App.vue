@@ -2,25 +2,25 @@
   <div class="app">
     <NavBar />
 
-    <div class="hero-content">
+    <!-- <div class="hero-content">
       <HeroMessage title="Sale, up to 70% off!"/>
       <HeroInspiration title="Get the spring look"/>
       <HeroProduct title="Find your jacket for the spring season"/>
-    </div>
-      
+    </div> -->
+
     <div class="container">
       <div class="row">
-        <ProductList :products="products" :orderProduct="order"/>
+        <ProductList :products="products" :orderProduct="order" />
       </div>
     </div>
 
 
 
-      <div class="order">
-        <button @click="handleClick('title')">Order by Title</button>
-        <button @click="handleClick('salary')">Order by Salary</button>
-        <button @click="handleClick('location')">Order by Location</button>
-      </div>
+    <div class="order">
+      <button @click="handleClick('title')">Order by Title</button>
+      <button @click="handleClick('salary')">Order by Salary</button>
+      <button @click="handleClick('location')">Order by Location</button>
+    </div>
 
     <JobList :jobs="jobs" :order="order" />
   </div>
@@ -37,9 +37,11 @@ import OrderTermProducts from './types/OrderTermProducts';
 import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
 import HeroMessage from './components/HeroMessage.vue';
+import axios from 'axios'
+
 
 import { useProductStore } from './stores/ProductStore';
-    // remeber to add store below in return statement
+// remeber to add store below in return statement
 
 export default defineComponent({
   name: 'App',
@@ -57,7 +59,7 @@ export default defineComponent({
 
     const order = ref<OrderTerm>('title');
 
-    const orderProduct = ref<OrderTermProducts>('name')
+    const orderProduct = ref<OrderTermProducts>('title')
 
     const handleClickProducts = (term: OrderTermProducts) => {
       orderProduct.value = term
@@ -68,32 +70,24 @@ export default defineComponent({
     }
 
     const products = ref<[]>([]);
-    // fix products type & syntax
     async function fetchAllProducts() {
-      const res = await fetch('https://fakestoreapi.com/products')
-      const data = await res.json();
-      products.value = await data
-      console.log(products)
-      return {products};
+      const res = await axios.get('https://fakestoreapi.com/products')
+        .then(response => products.value = response.data)
+      console.log({ products }, products)
+      // why is my products returned as object?
+      return { products };
     }
 
 
     fetchAllProducts()
 
     // remeber to add store below
-  return { jobs, handleClick, order, products, /* add store */ }
+    return { jobs, handleClick, order, products, handleClickProducts /* add store */ }
   },
-  // data() {
-  //   return {
-  //     name: 'Link',
-  //     age: 25 as number | string
-  //   }
-  // },
 })
 </script>
 
 <style scoped>
-
 /* Colors */
 /* 
 Hot Pink, 
@@ -113,6 +107,7 @@ Rosewater
   flex-direction: column;
   gap: 1rem;
 }
+
 header {
   text-align: center;
 }
@@ -121,25 +116,17 @@ header .order {
   margin-top: 20px;
 }
 
-button {
-  margin: 0 10px;
-  color: #1195c9;
-  border: 3px solid #1195c9;
-  background: #d5f0ff;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+header .title {
+  display: flex;
+  justify-content: center;
 }
-header .title{
-    display: flex;
-    justify-content: center;
-  }
-  header img {
-    width: 60px;
-    margin-right: 20px;
-  }
-  header h1 {
-    font-size: 3em;
-  }
+
+header img {
+  width: 60px;
+  margin-right: 20px;
+}
+
+header h1 {
+  font-size: 3em;
+}
 </style>
