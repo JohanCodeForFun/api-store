@@ -22,13 +22,13 @@
 						<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 						<span class="input-group-text btn btn-success" id="searchInput">Search</span>
 					</div>
-					<h3>Note to self: </h3>
+					<!-- <h3>Note to self: </h3>
 					<p>// While input is null, show hero message</p>
-					<p>// When user types in search, hide hero message and show dynamic search result</p>
+					<p>// When user types in search, hide hero message and show dynamic search result</p> -->
 
 					<!-- why do I need this for the width of above searchbar? -->
-					<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-					<button class="btn btn-success">Search</button>
+					<!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+					<button class="btn btn-success">Search</button> -->
 				<!-- </form> -->
 				<!-- </div> -->
 			</div>
