@@ -1,42 +1,9 @@
 <template>
   <div class="app">
     <NavBar />
-    <div class="content">
-      <div class="row">
-        <div class="col">
-          <h1 class="text-center">Hero #1</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="row">
-        <div class="col">
-          <h1 class="text-center">Hero #2</h1>
-        </div>
-        <div class="col">
-          <h1 class="text-center">Hero #3</h1>
-        </div>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="row">
-        <div class="col">
-          <HeroMessage title="Sale, up to 70% off!"/>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <div class="row">
-        <div class="col col-sm-6">
-          <HeroInspiration title="Get the spring look"/>
-        </div>
-        <div class="col col-sm-6">
-          <HeroProduct title="Find your jacket for the spring season"/>
-        </div>
-      </div>
-    </div>
+    <HeroMessage title="Sale, up to 70% off!" />
+    <HeroInspiration title="Get the spring look" />
+    <HeroProduct title="Find your jacket for the spring season" />
 
     <div class="container">
       <div class="row">
@@ -99,7 +66,7 @@ export default defineComponent({
     ])
 
     const order = ref<OrderTerm>('title');
-      const handleClick = (term: OrderTerm) => {
+    const handleClick = (term: OrderTerm) => {
       order.value = term
     }
 
