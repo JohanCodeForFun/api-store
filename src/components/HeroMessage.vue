@@ -32,7 +32,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-div {
+/* div {
 	color: white;
 	display: flex;
 	align-items: center;
@@ -50,7 +50,7 @@ h3 {
 img {
 	width: 300px;
 	height: 150px;
-}
+} */
 
 /* button {
 	margin: .5rem;
