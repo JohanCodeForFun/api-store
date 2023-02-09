@@ -1,3 +1,8 @@
+<script lang="ts">
+// import CheckoutForm from '../components/CheckoutForm.vue'
+
+</script>
+
 <template>
 	<div class="container">
 		<div class="row">
