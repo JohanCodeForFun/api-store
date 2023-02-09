@@ -1,20 +1,39 @@
 <template>
 	<header>
-		<div class="nav-cart">
-			<img src="../assets/logo.svg" alt="site logo" class="nav-logo">
-			<div class="nav-filler"></div>
-
-			<!-- fontawesome icons for navbar -->
-			<i class="fa-regular fa-user fa-2xl"></i>
-			<i class="fa-regular fa-heart fa-2xl"></i>
-			<i class="fa-solid fa-bag-shopping fa-2xl"></i>
-		</div>
-		<nav class="nav-menu">
-			<i class="fa-solid fa-bars fa-2xl"></i>
-			<input class="search-bar" type="text" value="" placeholder="Search product">
-			<i class="fa-solid fa-magnifying-glass fa-2xl"></i>
-
+		<nav class="py-2 bg-light border-bottom">
+			<div class="container d-flex flex-wrap">
+				<ul class="nav me-auto">
+					<a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+						<img src="../assets/logo.svg" alt="site logo" class="nav-logo" width="42" height="42">
+					</a>
+					<li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+				</ul>
+				<ul class="nav">
+					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
+					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Cart (0)</a></li>
+				</ul>
+			</div>
 		</nav>
+		<header class="py-3 mb-1 border-bottom">
+			<div class="container d-flex flex-wrap justify-content-center">
+				<div class="row">
+					<div class="col input-group mb-3">
+						<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+						<span class="input-group-text btn btn-success" id="searchInput">Search</span>
+					</div>
+					<h3>Note to self: </h3>
+					<p>// While input is null, show hero message</p>
+					<p>// When user types in search, hide hero message and show dynamic search result</p>
+
+					<!-- why do I need this for the width of above searchbar? -->
+					<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+					<button class="btn btn-success">Search</button>
+				<!-- </form> -->
+				<!-- </div> -->
+			</div>
+			</div>
+		</header>
 	</header>
 </template>
 
@@ -28,14 +47,51 @@ export default defineComponent({
 </script>
 
 <style scoped>
-header {
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.bi {
+	vertical-align: -.125em;
+	fill: currentColor;
+}
+
+.nav-scroller {
+	position: relative;
+	z-index: 2;
+	height: 2.75rem;
+	overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-bottom: 1rem;
+	margin-top: -1px;
+	overflow-x: auto;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* header {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: column;
-}
+} */
 
-.nav-menu,
+/* .nav-menu,
 .nav-cart {
 	height: 42px;
 	width: 100%;
@@ -57,6 +113,5 @@ header {
 
 .search-bar {
 	width: 100%;
-}
-
+} */
 </style>

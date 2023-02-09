@@ -1,14 +1,14 @@
 <template>
 
 	<p>Ordered by {{ order }}</p>
-	<div class="container-lg">
-		<!-- varför fungerar inte justify content på liten skärm? -->
-		<div class="row justify-content-center">
-			 <div v-if="!products?.length">
-				<h3>Loading items...</h3>
-			</div>
-			<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
-			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
+		<div class="container-lg">
+			<!-- varför fungerar inte justify content på liten skärm? -->
+			<div class="row">
+				<div v-if="!products?.length">
+					<h3>Loading items...</h3>
+				</div>
+				<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
+				<div v-else class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
 					<div class="card" style="width: 18rem;">
 						<!-- add RouterLink -->
 						<a href="#">
@@ -34,9 +34,9 @@
 						</div>
 					</div>
 				</div>
-			<!-- </transition-group> -->
+				<!-- </transition-group> -->
+			</div>
 		</div>
-	</div>
 </template>
 
 <script lang="ts">
@@ -72,5 +72,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 </style>

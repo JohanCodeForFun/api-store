@@ -3,32 +3,34 @@
     <NavBar />
     <HeroMessage title="Sale, up to 70% off!" />
     <HeroInspiration title="Get the spring look" />
-    <HeroProduct title="Find your jacket for the spring season" />
+    <HeroProduct title="Find your perfect jacket for this spring!" />
 
     <div class="container">
       <div class="row">
         <h5>Sort by...</h5>
         <div class="col-4">
-          <button @click="handleClickProducts('id')" class="btn btn-primary">Order by id</button>
+          <button @click="handleClickProducts('id')" class="btn btn-secondary">Order by id</button>
         </div>
         <div class="col-4">
-          <button @click="handleClickProducts('title')" class="btn btn-primary">Order by title</button>
+          <button @click="handleClickProducts('title')" class="btn btn-secondary">Order by title</button>
         </div>
         <div class="col-4">
-          <button @click="handleClickProducts('price')" class="btn btn-primary">Order by price</button>
+          <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
         </div>
         <ProductList :products="products" :order="orderProduct" />
       </div>
     </div>
 
     <!-- hyrule jobs below -->
-    <div class="order">
+    <!-- <div class="order">
       <button @click="handleClick('title')">Order by Title</button>
       <button @click="handleClick('salary')">Order by Salary</button>
       <button @click="handleClick('location')">Order by Location</button>
     </div>
 
-    <JobList :jobs="jobs" :order="order" />
+    <JobList :jobs="jobs" :order="order" /> -->
+    <!-- end of hyrule jobs -->
+
     <FooterComponent />
   </div>
 </template>
