@@ -1,4 +1,17 @@
 <template>
+	<!-- start of spa snippet -->
+	<div id="wrapper-hero">
+        <img
+            src="../assets/freestocks-_3Q3tsJ01nc-unsplash.jpg"
+            class="img-fluid"
+            alt="spa"
+        />
+        <div class="centered">
+            <h1>Tag hand om dig.</h1>
+        </div>
+    </div>
+		<!-- end of spa snippet -->
+
 	<div class="container">
 		<div class="row g-2">
 			<div class="col">
@@ -32,6 +45,19 @@ export default defineComponent({
 </script>
 
 <style scoped>
+#wrapper-hero img {
+        margin: 0 auto;
+        height: auto;
+        overflow-x: hidden;
+    }
+    /* Center the text */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
 /* div {
 	color: white;
 	display: flex;

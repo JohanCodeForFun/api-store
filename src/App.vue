@@ -1,11 +1,41 @@
 <template>
   <div class="app">
     <NavBar />
+    <div class="content">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center">Hero #1</h1>
+        </div>
+      </div>
+    </div>
 
-    <div class="hero-content">
-      <HeroMessage title="Sale, up to 70% off!"/>
-      <HeroInspiration title="Get the spring look"/>
-      <HeroProduct title="Find your jacket for the spring season"/>
+    <div class="content">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center">Hero #2</h1>
+        </div>
+        <div class="col">
+          <h1 class="text-center">Hero #3</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="row">
+        <div class="col">
+          <HeroMessage title="Sale, up to 70% off!"/>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col col-sm-6">
+          <HeroInspiration title="Get the spring look"/>
+        </div>
+        <div class="col col-sm-6">
+          <HeroProduct title="Find your jacket for the spring season"/>
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -106,14 +136,14 @@ Spearmint
 Rosewater
 #D8A7B1 */
 
-.hero-content {
+/* .hero-content {
   padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-}
+} */
 
 header {
   text-align: center;
