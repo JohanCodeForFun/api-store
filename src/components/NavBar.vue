@@ -4,6 +4,7 @@
 			<img src="../assets/logo.svg" alt="site logo" class="nav-logo">
 			<div class="nav-filler"></div>
 
+			<!-- fontawesome icons for navbar -->
 			<i class="fa-regular fa-user fa-2xl"></i>
 			<i class="fa-regular fa-heart fa-2xl"></i>
 			<i class="fa-solid fa-bag-shopping fa-2xl"></i>

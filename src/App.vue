@@ -2,20 +2,29 @@
   <div class="app">
     <NavBar />
 
-    <!-- <div class="hero-content">
+    <div class="hero-content">
       <HeroMessage title="Sale, up to 70% off!"/>
       <HeroInspiration title="Get the spring look"/>
       <HeroProduct title="Find your jacket for the spring season"/>
-    </div> -->
+    </div>
 
     <div class="container">
       <div class="row">
-        <ProductList :products="products" :orderProduct="order" />
+        <h5>Sort by...</h5>
+        <div class="col-4">
+          <button @click="handleClickProducts('id')" class="btn btn-primary">Order by id</button>
+        </div>
+        <div class="col-4">
+          <button @click="handleClickProducts('title')" class="btn btn-primary">Order by title</button>
+        </div>
+        <div class="col-4">
+          <button @click="handleClickProducts('price')" class="btn btn-primary">Order by price</button>
+        </div>
+        <ProductList :products="products" :order="orderProduct" />
       </div>
     </div>
 
-
-
+    <!-- hyrule jobs below -->
     <div class="order">
       <button @click="handleClick('title')">Order by Title</button>
       <button @click="handleClick('salary')">Order by Salary</button>
@@ -23,6 +32,7 @@
     </div>
 
     <JobList :jobs="jobs" :order="order" />
+    <FooterComponent />
   </div>
 </template>
 
@@ -38,6 +48,7 @@ import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
 import HeroMessage from './components/HeroMessage.vue';
 import axios from 'axios'
+import FooterComponent from './components/FooterComponent.vue';
 
 
 import { useProductStore } from './stores/ProductStore';
@@ -45,7 +56,7 @@ import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
   name: 'App',
-  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList },
+  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList, FooterComponent },
   setup() {
     const store = useProductStore();
 
@@ -58,23 +69,19 @@ export default defineComponent({
     ])
 
     const order = ref<OrderTerm>('title');
-
-    const orderProduct = ref<OrderTermProducts>('title')
-
-    const handleClickProducts = (term: OrderTermProducts) => {
-      orderProduct.value = term
+      const handleClick = (term: OrderTerm) => {
+      order.value = term
     }
 
-    const handleClick = (term: OrderTerm) => {
-      order.value = term
+    const orderProduct = ref<OrderTermProducts>('title')
+    const handleClickProducts = (term: OrderTermProducts) => {
+      orderProduct.value = term
     }
 
     const products = ref<[]>([]);
     async function fetchAllProducts() {
       const res = await axios.get('https://fakestoreapi.com/products')
         .then(response => products.value = response.data)
-      console.log({ products }, products)
-      // why is my products returned as object?
       return { products };
     }
 
@@ -82,7 +89,7 @@ export default defineComponent({
     fetchAllProducts()
 
     // remeber to add store below
-    return { jobs, handleClick, order, products, handleClickProducts /* add store */ }
+    return { jobs, handleClick, order, products, orderProduct, handleClickProducts /* add store */ }
   },
 })
 </script>

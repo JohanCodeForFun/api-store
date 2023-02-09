@@ -4,7 +4,9 @@ interface Product {
 	price: number,
 	description: string,
 	id: number,
-	rating: object
+	rating: {
+		rate: string
+	}
 }
 
 export default Product

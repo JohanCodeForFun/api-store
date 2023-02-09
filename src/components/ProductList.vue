@@ -1,14 +1,14 @@
 <template>
 
 	<p>Ordered by {{ order }}</p>
-	<transition-group name="list" tag="div">
-		<div class="container-lg">
-			<!-- varför fungerar inte justify content på liten skärm? -->
-			<div class="row justify-content-center">
-				<div v-if="!products?.length">
-					<h3>Loading items...</h3>
-				</div>
-				<div v-else class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in products" :key="product.id">
+	<div class="container-lg">
+		<!-- varför fungerar inte justify content på liten skärm? -->
+		<div class="row justify-content-center">
+			 <div v-if="!products?.length">
+				<h3>Loading items...</h3>
+			</div>
+			<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
+			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
 					<div class="card" style="width: 18rem;">
 						<!-- add RouterLink -->
 						<a href="#">
@@ -16,7 +16,7 @@
 						</a>
 						<div class="card-body">
 							<h5 class="card-title">{{ product.title }}</h5>
-							<p class="card-text">{{ product.rating }}</p>
+							<p class="card-text">{{ product.rating.rate }}</p>
 							<div class="row align-items-center">
 								<div class="col-3">
 									<a href="#" class="btn btn-primary">
@@ -34,31 +34,32 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			<!-- </transition-group> -->
 		</div>
-	</transition-group>
+	</div>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from 'vue';
 import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
-import { useProductStore } from '../stores/ProductStore';
+// import { useProductStore } from '../stores/ProductStore';
 
 
 
 export default defineComponent({
 	props: {
 		products: {
+			type: Array as PropType<Product[]>,
 			required: true,
-			type: Array as PropType<Product[]>
 		},
 		order: {
+			type: String as PropType<OrderTermProducts>,
 			required: true,
-			type: String as PropType<OrderTermProducts>
 		},
 	},
 	setup(props) {
+		// sorting function to sort according to id, title and price
 		const orderedProducts = computed(() => {
 			return [...props.products].sort((a: Product, b: Product) => {
 				return a[props.order] > b[props.order] ? 1 : -1

@@ -1,3 +1,3 @@
-type OrderTerm = 'title' | 'price';
+type OrderTerm = 'id' | 'title' | 'price';
 
 export default OrderTerm;
