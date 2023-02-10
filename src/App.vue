@@ -1,9 +1,13 @@
 <template>
   <div class="app">
     <NavBar />
+    
+    <router-view></router-view>
+
     <HeroMessage title="Sale, up to 70% off!" />
     <HeroInspiration title="Get the spring look" />
     <HeroProduct title="Find your perfect jacket for this spring!" />
+
 
     <div class="container">
       <div class="row">
