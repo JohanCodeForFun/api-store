@@ -19,7 +19,7 @@
 			<div class="container d-flex flex-wrap justify-content-center">
 				<div class="row">
 					<div class="col input-group mb-3">
-						<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+						<input type="search" class="form-control" placeholder="Search..." aria-label="Search" v-model="searchQuery">
 						<span class="input-group-text btn btn-success" id="searchInput">Search</span>
 					</div>
 					<!-- <h3>Note to self: </h3>
@@ -29,20 +29,31 @@
 					<!-- why do I need this for the width of above searchbar? -->
 					<!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 					<button class="btn btn-success">Search</button> -->
-				<!-- </form> -->
-				<!-- </div> -->
-			</div>
+					<!-- </form> -->
+					<!-- </div> -->
+				</div>
 			</div>
 		</header>
 	</header>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, ref } from 'vue';
+import ProductList from './ProductList.vue';
+import Product from '../types/Product';
 
-export default defineComponent({
-	name: 'Header'
-})
+export default {
+	setup() {
+		const searchQuery = ref("")
+		const searchedProducts = computed(() => {
+			return ProductList.value.filter((product: Product) => {
+				return (product.title.toLowerCase()
+					.indexOf(searchQuery.value.toLowerCase()))
+				})
+			})
+			return { searchedProducts, searchQuery }
+	}
+}
 
 </script>
 

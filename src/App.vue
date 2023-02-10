@@ -20,28 +20,14 @@
         <ProductList :products="products" :order="orderProduct" />
       </div>
     </div>
-
-    <!-- hyrule jobs below -->
-    <!-- <div class="order">
-      <button @click="handleClick('title')">Order by Title</button>
-      <button @click="handleClick('salary')">Order by Salary</button>
-      <button @click="handleClick('location')">Order by Location</button>
-    </div>
-
-    <JobList :jobs="jobs" :order="order" /> -->
-    <!-- end of hyrule jobs -->
-
     <FooterComponent />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import JobList from './components/JobList.vue';
 import ProductList from './components/ProductList.vue';
 import NavBar from './components/NavBar.vue';
-import Job from './types/Job'
-import OrderTerm from './types/OrderTerm'
 import OrderTermProducts from './types/OrderTermProducts';
 import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
@@ -55,22 +41,9 @@ import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
   name: 'App',
-  components: { HeroInspiration, HeroMessage, HeroProduct, JobList, NavBar, ProductList, FooterComponent },
+  components: { HeroInspiration, HeroMessage, HeroProduct, NavBar, ProductList, FooterComponent },
   setup() {
     const store = useProductStore();
-
-    const jobs = ref<Job[]>([
-      { title: 'farm worker', location: 'lon lon ranch', salary: 30000, id: '1' },
-      { title: 'quarryman', location: 'death mountain', salary: 40000, id: '2' },
-      { title: 'flute player', location: 'the lost woods', salary: 35000, id: '3' },
-      { title: 'fisherman', location: 'lake hylia', salary: 21000, id: '4' },
-      { title: 'prison guard', location: 'gerudo valley', salary: 32000, id: '5' }
-    ])
-
-    const order = ref<OrderTerm>('title');
-    const handleClick = (term: OrderTerm) => {
-      order.value = term
-    }
 
     const orderProduct = ref<OrderTermProducts>('title')
     const handleClickProducts = (term: OrderTermProducts) => {
@@ -83,12 +56,10 @@ export default defineComponent({
         .then(response => products.value = response.data)
       return { products };
     }
-
-
     fetchAllProducts()
 
     // remeber to add store below
-    return { jobs, handleClick, order, products, orderProduct, handleClickProducts /* add store */ }
+    return { products, orderProduct, handleClickProducts /* add store */ }
   },
 })
 </script>
