@@ -6,6 +6,5 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 
 createApp(App)
-// .use(bootstrap)
 .use(createPinia())
 .mount('#app')

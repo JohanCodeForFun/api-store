@@ -10,7 +10,7 @@
 					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
 				</ul>
 				<ul class="nav">
-					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
+					<li class="nav-item"><a href="#" class="nav-link link-dark px-2"><del>Login</del></a></li>
 					<li class="nav-item"><a href="#" class="nav-link link-dark px-2">Cart (0)</a></li>
 				</ul>
 			</div>
