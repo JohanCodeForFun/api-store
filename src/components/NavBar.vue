@@ -48,7 +48,7 @@ export default {
 		const searchedProducts = computed(() => {
 			return ProductList.value.filter((product: Product) => {
 				return (product.title.toLowerCase()
-					.indexOf(searchQuery.value.toLowerCase()))
+					.indexOf(searchQuery.value.toLowerCase()) != -1)
 				})
 			})
 			return { searchedProducts, searchQuery }
