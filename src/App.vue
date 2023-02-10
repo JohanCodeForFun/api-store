@@ -24,6 +24,8 @@
   </div>
 </template>
 
+
+
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import ProductList from './components/ProductList.vue';
@@ -36,16 +38,14 @@ import axios from 'axios'
 import FooterComponent from './components/FooterComponent.vue';
 
 import { useProductStore } from './stores/ProductStore';
-const productStore = useProductStore();
 // remeber to add store below in return statement
-
-productStore.fill();
 
 export default defineComponent({
   name: 'App',
   components: { HeroInspiration, HeroMessage, HeroProduct, NavBar, ProductList, FooterComponent },
   setup() {
-    const store = useProductStore();
+    const productStore = useProductStore();
+    productStore.fill();
 
     const orderProduct = ref<OrderTermProducts>('id')
     const handleClickProducts = (term: OrderTermProducts) => {
@@ -66,6 +66,7 @@ export default defineComponent({
   },
 })
 </script>
+
 
 <style scoped>
 /* Colors */
