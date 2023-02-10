@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <NavBar />
-    <HeroMessage title="Sale, up to 70% off!" />
+    <!-- <HeroMessage title="Sale, up to 70% off!" />
     <HeroInspiration title="Get the spring look" />
-    <HeroProduct title="Find your perfect jacket for this spring!" />
+    <HeroProduct title="Find your perfect jacket for this spring!" /> -->
 
     <div class="container">
       <div class="row">
@@ -36,7 +36,10 @@ import axios from 'axios'
 import FooterComponent from './components/FooterComponent.vue';
 
 import { useProductStore } from './stores/ProductStore';
+const productStore = useProductStore();
 // remeber to add store below in return statement
+
+productStore.fill();
 
 export default defineComponent({
   name: 'App',
