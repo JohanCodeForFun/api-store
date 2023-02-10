@@ -8,7 +8,7 @@
 					<h3>Loading items...</h3>
 				</div>
 				<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
-				<div v-else class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
+				<div v-else class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in productStore.products" :key="product.id">
 					<div class="card" style="width: 18rem;">
 						<!-- add RouterLink -->
 						<a href="#">
@@ -43,9 +43,14 @@
 import { computed, defineComponent, PropType } from 'vue';
 import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
+import { useProductStore } from '../stores/ProductStore';
 
 export default defineComponent({
 	props: {
+		productStore: {
+			type: Array as PropType<Product[]>,
+			required: true,
+		},
 		products: {
 			type: Array as PropType<Product[]>,
 			required: true,
@@ -56,6 +61,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
+		const productStore = useProductStore();
 
 		// sorting function to sort according to id, title and price
 		const orderedProducts = computed(() => {
@@ -64,7 +70,7 @@ export default defineComponent({
 			})
 		})
 
-		return { orderedProducts }
+		return { orderedProducts, productStore }
 	}
 })
 </script>

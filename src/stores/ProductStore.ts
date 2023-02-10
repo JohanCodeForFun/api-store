@@ -1,12 +1,11 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import products from "../App.vue";
 import Product from "../types/Product";
 
 export const useProductStore = defineStore("ProductStore", {
   state: () => {
     return {
-      products: [],
+      products: [] as Product[],
     };
   },
   actions: {
