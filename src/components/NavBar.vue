@@ -20,8 +20,13 @@
 				<div class="row">
 					<div class="col input-group mb-3">
 						<input type="search" class="form-control" placeholder="Search..." aria-label="Search" v-model="searchQuery">
-						<span class="input-group-text btn btn-success" id="searchInput">Search</span>
+						<input type="button" class="input-group-text btn btn-success" value="Search">
 					</div>
+					<p>{{  }}</p>
+					<!-- <div v-for="item in searchedProducts">
+						<p>{{ item }}</p>
+					</div> -->
+
 					<!-- <h3>Note to self: </h3>
 					<p>// While input is null, show hero message</p>
 					<p>// When user types in search, hide hero message and show dynamic search result</p> -->
@@ -44,6 +49,7 @@ import Product from '../types/Product';
 
 export default {
 	setup() {
+		const message = 'hello';
 		const searchQuery = ref("")
 		const searchedProducts = computed(() => {
 			return ProductList.value.filter((product: Product) => {
@@ -51,7 +57,7 @@ export default {
 					.indexOf(searchQuery.value.toLowerCase()) != -1)
 				})
 			})
-			return { searchedProducts, searchQuery }
+			return { searchedProducts, searchQuery, message }
 	}
 }
 

@@ -1,5 +1,6 @@
 <template>
-
+	<p> HELLLLOOOO</p>
+	<p>{{ message }}</p>
 	<p>Ordered by {{ order }}</p>
 		<div class="container-lg">
 			<!-- varför fungerar inte justify content på liten skärm? -->
@@ -44,11 +45,15 @@ import { computed, defineComponent, PropType } from 'vue';
 import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
 // import { useProductStore } from '../stores/ProductStore';
+import message from './NavBar.vue'
 
 
 
 export default defineComponent({
 	props: {
+		message: {
+			type: String
+		},
 		products: {
 			type: Array as PropType<Product[]>,
 			required: true,
