@@ -43,9 +43,6 @@
 import { computed, defineComponent, PropType } from 'vue';
 import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
-// import { useProductStore } from '../stores/ProductStore';
-
-
 
 export default defineComponent({
 	props: {
@@ -59,6 +56,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
+
 		// sorting function to sort according to id, title and price
 		const orderedProducts = computed(() => {
 			return [...props.products].sort((a: Product, b: Product) => {
