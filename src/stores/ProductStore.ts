@@ -11,12 +11,10 @@ export const useProductStore = defineStore("ProductStore", {
   actions: {
     async fill() {
       this.products = (
-        await axios.get("https://fakestoreapi.com/products")
-      ).data;
-      // const res = await axios
-      //   .get("https://fakestoreapi.com/products")
-      //   .then((response) => (products.value = response.data));
-      // return { products };
+        await axios
+        .get("https://fakestoreapi.com/products")
+        .then(response => (this.products = response.data))
+        .catch(error => console.log(error)));
     },
   },
   // actions
