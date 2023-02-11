@@ -17,7 +17,7 @@
         <div class="col-4">
           <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
         </div>
-        <ProductList :products="products" :order="orderProduct" />
+        <ProductList :productStore="products" :order="orderProduct" />
       </div>
     </div>
     <FooterComponent />
@@ -38,7 +38,6 @@ import axios from 'axios'
 import FooterComponent from './components/FooterComponent.vue';
 
 import { useProductStore } from './stores/ProductStore';
-// remeber to add store below in return statement
 
 export default defineComponent({
   name: 'App',
@@ -46,6 +45,8 @@ export default defineComponent({
   setup() {
     const productStore = useProductStore();
     productStore.fill();
+
+
 
     const orderProduct = ref<OrderTermProducts>('id')
     const handleClickProducts = (term: OrderTermProducts) => {
