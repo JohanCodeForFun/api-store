@@ -34,12 +34,21 @@ export const useCartStore = defineStore('CartStore', {
 		// isEmpty({ items }) {
 		// 	return (items: []) => items.length
 		// },
-		grouped: state => groupBy(state.items, (item: Item) => item.title),
+		grouped: state => {
+			const grouped = groupBy(state.items, (item: Item) => item.title);
+			const sorted = Object.keys(grouped).sort();
+			let inOrder = {};
+			sorted.forEach((key => (inOrder[key] = grouped[key])))
+			return inOrder
+		},
 		groupCount: state => <T> (title: T): T => state.grouped[title].length,
 	},
 	actions: {
 		addItems(item: Item) {
 			this.items.push({ ...item });
+		},
+		clearItem(productItem) {
+			this.items = this.items.filter((item) => item.title !== productItem)
 		}
 	}
 });

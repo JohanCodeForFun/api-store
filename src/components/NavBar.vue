@@ -57,7 +57,9 @@
 								<!-- modal content -->
 								<div v-if="!cartStore.isEmpty">
 									<ul class="list-group">
-										<CartItem v-for="(items, title) in cartStore.grouped" :key="title" :product="items[0]" :count="items.length"/>
+										<CartItem v-for="(items, title) in cartStore.grouped" :key="title" :product="items[0]" :count="items.length"
+										@updateCount=""
+										@clear="cartStore.clearItem(title)"/>
 									</ul>
 								</div>
 								<div v-else>
