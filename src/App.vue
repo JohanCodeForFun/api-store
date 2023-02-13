@@ -46,8 +46,6 @@ export default defineComponent({
     const productStore = useProductStore();
     productStore.fill();
 
-
-
     const orderProduct = ref<OrderTermProducts>('id')
     const handleClickProducts = (term: OrderTermProducts) => {
       orderProduct.value = term
@@ -80,35 +78,4 @@ Spearmint
 #B6E2D3
 Rosewater
 #D8A7B1 */
-
-/* .hero-content {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-} */
-
-header {
-  text-align: center;
-}
-
-header .order {
-  margin-top: 20px;
-}
-
-header .title {
-  display: flex;
-  justify-content: center;
-}
-
-header img {
-  width: 60px;
-  margin-right: 20px;
-}
-
-header h1 {
-  font-size: 3em;
-}
 </style>
