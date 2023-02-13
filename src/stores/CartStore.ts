@@ -29,7 +29,7 @@ export const useCartStore = defineStore("CartStore", {
     },
     groupCount: (state) => (title) => state.grouped[title].length,
     // groupCount: (state) => <T>(title: T): T => state.grouped[title].length,
-    total: state => Math.round(state.items.reduce((acc, cur) => acc + cur.price, 0) * 100/100)
+    total: state => state.items.reduce((acc, cur) => acc + cur.price, 0).toFixed(2)
       },
   actions: {
     checkout() {
@@ -40,7 +40,6 @@ export const useCartStore = defineStore("CartStore", {
     },
     addItems(item: Item, count) {
       for (let i = 0; i < count; i++) {
-        console.log(count);
       }
       this.items.push({ ...item });
     },
