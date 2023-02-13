@@ -20,12 +20,14 @@
         <div class="col-4">
           <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
         </div>
-        <ProductList :products="products" :order="orderProduct" />
+        <ProductList :productStore="products" :order="orderProduct" />
       </div>
     </div>
     <FooterComponent />
   </div>
 </template>
+
+
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
@@ -38,15 +40,14 @@ import HeroMessage from './components/HeroMessage.vue';
 import axios from 'axios'
 import FooterComponent from './components/FooterComponent.vue';
 
-
 import { useProductStore } from './stores/ProductStore';
-// remeber to add store below in return statement
 
 export default defineComponent({
   name: 'App',
   components: { HeroInspiration, HeroMessage, HeroProduct, NavBar, ProductList, FooterComponent },
   setup() {
-    const store = useProductStore();
+    const productStore = useProductStore();
+    productStore.fill();
 
     const orderProduct = ref<OrderTermProducts>('id')
     const handleClickProducts = (term: OrderTermProducts) => {
@@ -60,7 +61,6 @@ export default defineComponent({
       return { products };
     }
 
-
     fetchAllProducts()
 
     // remeber to add store below
@@ -68,6 +68,7 @@ export default defineComponent({
   },
 })
 </script>
+
 
 <style scoped>
 /* Colors */
@@ -80,35 +81,4 @@ Spearmint
 #B6E2D3
 Rosewater
 #D8A7B1 */
-
-/* .hero-content {
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-} */
-
-header {
-  text-align: center;
-}
-
-header .order {
-  margin-top: 20px;
-}
-
-header .title {
-  display: flex;
-  justify-content: center;
-}
-
-header img {
-  width: 60px;
-  margin-right: 20px;
-}
-
-header h1 {
-  font-size: 3em;
-}
 </style>
