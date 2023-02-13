@@ -4,8 +4,8 @@ defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'input']);
-const updateValue = (value: (number | null)): void => {
-	if (value !== null) {
+const updateValue = (value: (number | string)): void => {
+	if (value !== '') {
 		emit('update:modelValue', value)
 	}
 }

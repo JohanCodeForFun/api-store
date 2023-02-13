@@ -58,20 +58,21 @@
 								<div v-if="!cartStore.isEmpty">
 									<ul class="list-group">
 										<CartItem v-for="(items, title) in cartStore.grouped" :key="title" :product="items[0]" :count="items.length"
-										@updateCount=""
+										@updateCount="cartStore.setItemCount(items[0], $event)"
 										@clear="cartStore.clearItem(title)"/>
 									</ul>
 								</div>
 								<div v-else>
 									<p>Cart is empty.</p>
 								</div>
+								<p>Total: ${{ cartStore.total }}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" @click="cartStore.$reset()">Clear Cart</button>
-					<button type="button" class="btn btn-success">Checkout</button>
+					<button type="button" class="btn btn-success" @click="cartStore.checkout">Checkout</button>
 				</div>
 			</div>
 		</div>
