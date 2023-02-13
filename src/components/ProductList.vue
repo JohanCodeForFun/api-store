@@ -55,10 +55,10 @@ export default defineComponent({
 			type: Array as PropType<Product[]>,
 			required: true,
 		},
-		products: {
-			type: Array as PropType<Product[]>,
-			required: true,
-		},
+		// products: {
+		// 	type: Array as PropType<Product[]>,
+		// 	required: true,
+		// },
 		order: {
 			type: String as PropType<OrderTermProducts>,
 			required: true,
@@ -70,13 +70,13 @@ export default defineComponent({
 		const cartStore = useCartStore();
 
 		// sorting function to sort according to id, title and price
-		const orderedProducts = computed(() => {
-			return [...props.products].sort((a: Product, b: Product) => {
-				return a[props.order] > b[props.order] ? 1 : -1
-			})
-		})
+		// const orderedProducts = computed(() => {
+		// 	return [...props.products].sort((a: Product, b: Product) => {
+		// 		return a[props.order] > b[props.order] ? 1 : -1
+		// 	})
+		// })
 
-		return { orderedProducts, productStore, cartStore, count }
+		return { productStore, cartStore, count }
 	}
 })
 </script>
