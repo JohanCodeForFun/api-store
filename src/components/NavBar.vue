@@ -41,6 +41,7 @@
 	</header>
 
 	<!-- Modal -->
+	<!-- add to CartWdiget.vue -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -56,8 +57,7 @@
 								<!-- modal content -->
 								<div v-if="!cartStore.isEmpty">
 									<ul class="list-group">
-										<li class="list-group-item">An item</li>
-										<li class="list-group-item">A second item</li>
+										<CartItem v-for="(items, title) in cartStore.grouped" :key="title" :product="items[0]" :count="items.length"/>
 									</ul>
 								</div>
 								<div v-else>
@@ -68,7 +68,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary">Clear Cart</button>
+					<button type="button" class="btn btn-secondary" @click="cartStore.$reset()">Clear Cart</button>
 					<button type="button" class="btn btn-success">Checkout</button>
 				</div>
 			</div>
@@ -78,6 +78,7 @@
 
 <script setup lang="ts">
 import { useCartStore } from '../stores/CartStore';
+import CartItem from './CartItem.vue';
 const cartStore = useCartStore();
 
 </script>
