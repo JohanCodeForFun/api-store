@@ -23,12 +23,12 @@ export const useCartStore = defineStore("CartStore", {
     grouped: (state) => {
       const grouped = groupBy(state.items, (item: Item) => item.title);
       const sorted = Object.keys(grouped).sort();
-      let inOrder = {};
+      let inOrder = <Item[]>{}; 
       sorted.forEach((key) => (inOrder[key] = grouped[key]));
       return inOrder;
     },
-    groupCount: (state) => (title) => state.grouped[title].length,
-    // groupCount: (state) => <T>(title: T): T => state.grouped[title].length,
+    // groupCount: (state) => (title) => state.grouped[title].length,
+    groupCount: (state) => <T>(title: T): T => state.grouped[title].length,
     total: state => state.items.reduce((acc, cur) => acc + cur.price, 0).toFixed(2)
       },
   actions: {
