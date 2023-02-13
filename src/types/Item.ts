@@ -3,10 +3,14 @@ interface Item {
 	image: string,
 	price: number,
 	description: string,
+	category: string,
 	id: number,
 	rating: {
-		rate: string
+		rate: number,
+		count: number
 	}
+  count?: number;
+  grouped?: string;
 }
 
-export default Item
+export default Item;
