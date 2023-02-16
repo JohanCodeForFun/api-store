@@ -8,7 +8,7 @@
 			</div> -->
 			<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
 
-			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in productStore.products" :key="product.id">
+			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in productStore.filteredProducts" :key="product.id">
 				<div class="card" style="width: 18rem;">
 					<!-- add RouterLink -->
 					<a href="#">

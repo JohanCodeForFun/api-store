@@ -19,25 +19,6 @@
 				</ul>
 			</div>
 		</nav>
-		<header class="py-3 mb-1 border-bottom">
-			<div class="container d-flex flex-wrap justify-content-center">
-				<div class="row">
-					<div class="col input-group mb-3">
-						<input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-						<span class="input-group-text btn btn-success" id="searchInput">Search</span>
-					</div>
-					<!-- <h3>Note to self: </h3>
-					<p>// While input is null, show hero message</p>
-					<p>// When user types in search, hide hero message and show dynamic search result</p> -->
-
-					<!-- why do I need this for the width of above searchbar? -->
-					<!-- <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-					<button class="btn btn-success">Search</button> -->
-					<!-- </form> -->
-					<!-- </div> -->
-				</div>
-			</div>
-		</header>
 	</header>
 
 	<!-- Modal -->
@@ -87,71 +68,4 @@ const cartStore = useCartStore();
 </script>
 
 <style scoped>
-.bd-placeholder-img {
-	font-size: 1.125rem;
-	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-@media (min-width: 768px) {
-	.bd-placeholder-img-lg {
-		font-size: 3.5rem;
-	}
-}
-
-.bi {
-	vertical-align: -.125em;
-	fill: currentColor;
-}
-
-.nav-scroller {
-	position: relative;
-	z-index: 2;
-	height: 2.75rem;
-	overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-	display: flex;
-	flex-wrap: nowrap;
-	padding-bottom: 1rem;
-	margin-top: -1px;
-	overflow-x: auto;
-	text-align: center;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
-}
-
-/* header {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
-} */
-
-/* .nav-menu,
-.nav-cart {
-	height: 42px;
-	width: 100%;
-	display: flex;
-	gap: 1.6rem;
-	align-items: center;
-	justify-content: space-between;
-}
-
-.nav-logo {
-	flex: 1;
-	width: 40px;
-	height: 40px;
-}
-.nav-filler {
-	flex: 1;
-	width: 100%;
-}
-
-.search-bar {
-	width: 100%;
-} */
 </style>

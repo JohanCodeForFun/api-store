@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <NavBar />
+    <SearchBar />
     <!-- <HeroMessage title="Sale, up to 70% off!" />
     <HeroInspiration title="Get the spring look" />
     <HeroProduct title="Find your perfect jacket for this spring!" /> -->
@@ -30,6 +31,7 @@
 import { defineComponent, ref } from 'vue';
 import ProductList from './components/ProductList.vue';
 import NavBar from './components/NavBar.vue';
+import SearchBar from './components/SearchBar.vue'
 import OrderTermProducts from './types/OrderTermProducts';
 import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
@@ -41,7 +43,7 @@ import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
   name: 'App',
-  components: { HeroInspiration, HeroMessage, HeroProduct, NavBar, ProductList, FooterComponent },
+  components: { HeroInspiration, HeroMessage, HeroProduct, NavBar, ProductList, FooterComponent, SearchBar },
   setup() {
     const productStore = useProductStore();
     productStore.fill();
