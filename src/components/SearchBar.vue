@@ -12,8 +12,9 @@
 </template>
 
 <script setup lang="ts">
-	import { ref } from 'vue';
+	import { ref, watchEffect } from 'vue';
 	import { useProductStore } from '../stores/ProductStore';
+
 
 	const searchQuery = ref('');
 	const productStore = useProductStore();
@@ -21,4 +22,8 @@
 	const search = () => {
 		productStore.search(searchQuery.value)
 	}
+
+	// watchEffect automatically watches for changes to any state changes (watch must be provided with a variable or variables to watch).
+	watchEffect (() => search())
+	
 </script>
