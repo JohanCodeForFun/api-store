@@ -8,7 +8,6 @@
 
     <div class="container">
       <div class="row">
-        <h5>Sort by...</h5>
         <div class="col-4">
           <button @click="handleClickProducts('id')" class="btn btn-secondary">Order by id</button>
         </div>
@@ -18,14 +17,12 @@
         <div class="col-4">
           <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
         </div>
-        <ProductList :productStore="products" :order="orderProduct" />
+        <ProductList :order="orderProduct" />
       </div>
     </div>
     <FooterComponent />
   </div>
 </template>
-
-
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
@@ -36,9 +33,7 @@ import OrderTermProducts from './types/OrderTermProducts';
 import HeroProduct from './components/HeroProduct.vue';
 import HeroInspiration from './components/HeroInspiration.vue';
 import HeroMessage from './components/HeroMessage.vue';
-import axios from 'axios'
 import FooterComponent from './components/FooterComponent.vue';
-
 import { useProductStore } from './stores/ProductStore';
 
 export default defineComponent({
@@ -52,18 +47,8 @@ export default defineComponent({
     const handleClickProducts = (term: OrderTermProducts) => {
       orderProduct.value = term
     }
-
-    const products = ref<[]>([]);
-    async function fetchAllProducts() {
-      const res = await axios.get('https://fakestoreapi.com/products')
-        .then(response => products.value = response.data)
-      return { products };
-    }
-
-    fetchAllProducts()
-
-    // remeber to add store below
-    return { products, orderProduct, handleClickProducts /* add store */ }
+    
+    return { orderProduct, handleClickProducts }
   },
 })
 </script>

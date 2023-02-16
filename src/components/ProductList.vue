@@ -8,7 +8,7 @@
 			</div> -->
 			<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
 
-			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in productStore.filteredProducts" :key="product.id">
+			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
 				<div class="card" style="width: 18rem;">
 					<!-- add RouterLink -->
 					<a href="#">
@@ -45,20 +45,11 @@ import Product from '../types/Product'
 import OrderTermProducts from '../types/OrderTermProducts';
 import { useProductStore } from '../stores/ProductStore';
 import { useCartStore } from '../stores/CartStore';
-import { parse } from '@vue/compiler-dom';
 
 
 export default defineComponent({
 	emits: ['addToCart'],
 	props: {
-		productStore: {
-			type: Array as PropType<Product[]>,
-			required: true,
-		},
-		// products: {
-		// 	type: Array as PropType<Product[]>,
-		// 	required: true,
-		// },
 		order: {
 			type: String as PropType<OrderTermProducts>,
 			required: true,
@@ -70,13 +61,13 @@ export default defineComponent({
 		const cartStore = useCartStore();
 
 		// sorting function to sort according to id, title and price
-		// const orderedProducts = computed(() => {
-		// 	return [...props.products].sort((a: Product, b: Product) => {
-		// 		return a[props.order] > b[props.order] ? 1 : -1
-		// 	})
-		// })
+		const orderedProducts = computed(() => {
+			return [...productStore.filteredProducts].sort((a: Product, b: Product) => {
+				return a[props.order] > b[props.order] ? 1 : -1
+			})
+		})
 
-		return { productStore, cartStore, count }
+		return { productStore, cartStore, count, orderedProducts }
 	}
 })
 </script>
