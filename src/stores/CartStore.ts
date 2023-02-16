@@ -16,7 +16,7 @@ export const useCartStore = defineStore("CartStore", {
   },
   getters: {
     count: (state) => state.items.length,
-    isEmpty: (state) => state.count === 0,
+    isEmpty: (state) => state.items.length === 0,
     // isEmpty({ items }) {
     // 	return (items: []) => items.length
     // },
@@ -38,7 +38,7 @@ export const useCartStore = defineStore("CartStore", {
         `${AuthUserStore.username} just bought ${this.count} items at a total of $${this.total}.`
       );
     },
-    addItems(item: Item, count) {
+    addItems(item: Item, count: number) {
       for (let i = 0; i < count; i++) {
       }
       this.items.push({ ...item });
