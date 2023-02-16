@@ -3,23 +3,15 @@ import { useAuthUserStore } from "./AuthUserStore";
 import { groupBy } from "lodash";
 import Item from "../types/Item";
 
-// interface State {
-// 	items: Item[];
-// 	count?: any
-// }
-
 export const useCartStore = defineStore("CartStore", {
   state: () => {
     return {
-      items: <Item[]>[], // Property 'count' does not exist on type '{ items: never[]; }
+      items: <Item[]>[],
     };
   },
   getters: {
     count: (state) => state.items.length,
     isEmpty: (state) => state.items.length === 0,
-    // isEmpty({ items }) {
-    // 	return (items: []) => items.length
-    // },
     grouped: (state) => {
       const grouped = groupBy(state.items, (item: Item) => item.title);
       const sorted = Object.keys(grouped).sort();
