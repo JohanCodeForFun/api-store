@@ -1,15 +1,12 @@
 <template>
 	<ul class="nav">
 		<li class="nav-item"><a href="#" class="nav-link link-dark px-2"><del>Login</del></a></li>
-		<!-- move this code and modal to CartWidget.vue -->
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
 			Cart ({{ cartStore.count }})
 		</button>
 	</ul>
 
-	<!-- Modal -->
-	<!-- add to CartWdiget.vue -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
