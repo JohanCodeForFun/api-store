@@ -1,22 +1,15 @@
 <template>
 	<p>Ordered by {{ order }}</p>
 	<div class="container-lg">
-		<!-- varför fungerar inte justify content på liten skärm? -->
 		<div class="row">
-			<!-- <div v-if="!productStore?.length">
-				<h3>Loading items...</h3>
-			</div> -->
-			<!-- <transition-group name="list" tag="div" class="row justify-content-center"> -->
-
 			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
 				<div class="card" style="width: 18rem;">
-					<!-- add RouterLink -->
 					<a href="#">
 						<img :src="product.image" class="card-img-top" :alt="product.title">
 					</a>
 					<div class="card-body">
 						<h5 class="card-title">{{ product.title }}</h5>
-						<p class="card-text">{{ product.rating.rate }}</p>
+						<p class="card-text">Review: {{ product.rating.rate }}</p>
 						<div class="row align-items-center">
 							<div class="col-3">
 								<button class="btn btn-primary">
@@ -24,18 +17,16 @@
 								</button>
 							</div>
 							<div class="col-5">
-								<button class="btn btn-success" @click="cartStore.addItems(product, count)">Buy Now</button>
+								<button class="btn btn-success" @click="cartStore.addItems(product)">Buy Now</button>
 							</div>
 							<div class="col-4">
 								<h5 class="card-text">${{ product.price }}</h5>
 							</div>
 						</div>
-						<!-- <span>Review: {{ product.review }}</span> -->
 					</div>
 				</div>
 			</div>
 		</div>
-			<!-- </transition-group> -->
 		</div>
 </template>
 
@@ -73,5 +64,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 </style>
