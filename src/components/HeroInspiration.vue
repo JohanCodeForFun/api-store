@@ -6,9 +6,9 @@
 					<!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
 					<h3 class="display-5 fw-bold">{{ title }}</h3>
 					<div class="col-lg-6 mx-auto">
-						<img class="img-fluid" src="src/assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
-		<!-- Photo by <a href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a> on <a href="https://unsplash.com/photos/gYdjZzXNWlg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-   -->
+						<img class="img-fluid" src="../assets/priscilla-du-preez-gYdjZzXNWlg-unsplash.jpg" alt="spring look">
+						<!-- Photo by <a href="https://unsplash.com/@priscilladupreez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Priscilla Du Preez</a> on <a href="https://unsplash.com/photos/gYdjZzXNWlg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+		   -->
 						<div class="d-grid">
 							<button type="button" class="btn btn-success  btn-lg m-2">Get spring look ideas here</button>
 						</div>
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+</div>
 </template>
 
 <script lang="ts">
@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-	/* div {
+/* div {
 		color: black;
 		display: flex;
 		align-items: center;

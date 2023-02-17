@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppCountInput from './AppCountInput.vue';
 
 defineProps({
 	product: { type: Object, required: true },
@@ -9,21 +8,20 @@ defineProps({
 defineEmits(["updateCount", "clear"]);
 </script>
 <template>
-	<div class="container">
+	<div class="container mb-2">
 		<div class="row">
-			<div class="col-4">
-
+			<div class="col-5">
 				<p>{{ product.title }}</p>
-			</div>
-			<div class="col-2">
-				<AppCountInput :model-value="count" @update:modelValue="$emit('updateCount', $event)" />
 			</div>
 			<div class="col-2">
 				<p>${{ count * product.price }}</p>
 			</div>
+			<div class="col-3">
+				<p>Quanitity: {{ count }}</p>
+			</div>
 			<div class="col-2">
-				<button @click="$emit('clear')" class="btn btn-danger">Remove</button>
+				<button @click="$emit('clear')" class="btn btn-danger p-2">Remove</button>
 			</div>
 		</div>
-	</div>
+</div>
 </template>

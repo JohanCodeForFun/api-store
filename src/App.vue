@@ -2,9 +2,9 @@
   <div class="app">
     <NavBar />
     <SearchBar />
-    <!-- <HeroMessage title="Sale, up to 70% off!" />
+    <HeroMessage title="Sale, up to 70% off!" />
     <HeroInspiration title="Get the spring look" />
-    <HeroProduct title="Find your perfect jacket for this spring!" /> -->
+    <HeroProduct title="Find your perfect jacket for this spring!" />
 
     <div class="container">
       <div class="row">
