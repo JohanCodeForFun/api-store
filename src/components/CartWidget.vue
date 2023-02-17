@@ -26,7 +26,7 @@
 								<div v-if="!cartStore.isEmpty">
 									<ul class="list-group">
 										<CartItem v-for="(items, title) in cartStore.grouped" :key="title" :product="items[0]"
-											:count="items.length" @updateCount="cartStore.setItemCount(items[0], $event)"
+											:count="items.length" @updateCount="cartStore.setItemCount(items[0])"
 											@clear="cartStore.clearItem(title)" />
 									</ul>
 								</div>

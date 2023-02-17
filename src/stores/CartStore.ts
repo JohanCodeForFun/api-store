@@ -14,19 +14,8 @@ export const useCartStore = defineStore("CartStore", {
     isEmpty: (state) => state.items.length === 0,
     grouped: (state) => {
       const grouped = groupBy(state.items, (item: Item) => item.title);
-      // const sorted = Object.keys(grouped).sort();
-      // let inOrder = <Item[]>{}; 
-      // sorted.forEach((key: string) => (inOrder[key] = grouped[key]));
-      // return sorted;
-
-      // const sortedProducts = (products, keyGetter) => {
-      //   const map = new Map();
-      //   grouped
-      // }
       return grouped
     },
-    // groupCount: (state) => (title) => state.grouped[title].length,
-    groupCount: (state) => <T>(title: T): T => state.grouped[title].length,
     total: state => state.items.reduce((acc, cur) => acc + cur.price, 0).toFixed(2)
       },
   actions: {
@@ -36,19 +25,15 @@ export const useCartStore = defineStore("CartStore", {
         `${AuthUserStore.username} just bought ${this.count} items at a total of $${this.total}.`
       );
     },
-    addItems(item: Item, count: number) {
-      for (let i = 0; i < count; i++) {
-      }
+    addItems(item: Item) {
       this.items.push({ ...item });
     },
     clearItem(productItem: Object) {
       this.items = this.items.filter((item) => item.title !== productItem);
     },
-    setItemCount(item: Item, count: number) {
-      // Pinia Fundamentals course on vueschool
-      // Challenge Part 2: Setting Item Counts in the Cart
+    setItemCount(item: Item) {
       this.clearItem(item.title);
-      this.addItems(item, count);
+      this.addItems(item);
     },
   },
 });
