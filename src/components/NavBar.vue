@@ -27,11 +27,11 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Products in cart</h1>
+					<h1 class="fs-5">Products in cart</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<!-- modal body -->
+					<!-- shopping cart modal body -->
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -46,7 +46,7 @@
 								<div v-else>
 									<p>Cart is empty.</p>
 								</div>
-								<p>Total: ${{ cartStore.total }}</p>
+								<p class="text-end fw-bold">Total: ${{ cartStore.total }}</p>
 							</div>
 						</div>
 					</div>
