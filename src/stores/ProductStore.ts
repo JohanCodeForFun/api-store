@@ -25,7 +25,7 @@ export const useProductStore = defineStore("ProductStore", {
   },
   getters: {
     filter() {
-      this.products = this.products.filter((product) => {
+      this.filteredProducts = this.products.filter((product) => {
         return (
           product.category === "men's clothing" ||
           product.category === "women's clothing" ||
