@@ -18,7 +18,7 @@ import FooterComponent from './components/FooterComponent.vue';
 export default defineComponent({
   name: 'App',
   components: { NavBar, FooterComponent, SearchBar },
-  setup() {},
+  setup() { },
 })
 </script>
 
