@@ -1,22 +1,22 @@
 <template>
-	 <!-- <HeroMessage title="Sale, up to 70% off!" />
-    <HeroInspiration title="Get the spring look" />
-    <HeroProduct title="Find your perfect jacket for this spring!" /> -->
+  <HeroMessage title="Sale, up to 70% off!" />
+  <HeroInspiration title="Get the spring look" />
+  <HeroProduct title="Find your perfect jacket for this spring!" />
 
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <button @click="handleClickProducts('id')" class="btn btn-secondary">Order by id</button>
-        </div>
-        <div class="col-4">
-          <button @click="handleClickProducts('title')" class="btn btn-secondary">Order by title</button>
-        </div>
-        <div class="col-4">
-          <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
-        </div>
-        <ProductList :order="orderProduct" />
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <button @click="handleClickProducts('id')" class="btn btn-secondary">Order by id</button>
       </div>
+      <div class="col-4">
+        <button @click="handleClickProducts('title')" class="btn btn-secondary">Order by title</button>
+      </div>
+      <div class="col-4">
+        <button @click="handleClickProducts('price')" class="btn btn-secondary">Order by price</button>
+      </div>
+      <ProductList :order="orderProduct" />
     </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -42,7 +42,7 @@ export default defineComponent({
     const handleClickProducts = (term: OrderTermProducts) => {
       orderProduct.value = term
     }
-    
+
     return { orderProduct, handleClickProducts }
   },
 })
