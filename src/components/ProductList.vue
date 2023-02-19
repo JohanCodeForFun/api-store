@@ -12,9 +12,11 @@
 						<p class="card-text">Review: {{ product.rating.rate }}</p>
 						<div class="row align-items-center">
 							<div class="col-3">
-								<button class="btn btn-primary">
-									<i class="fa-solid fa-circle-info fa-xl"></i>
-								</button>
+								<RouterLink :to="`/product/${product.id}`">
+									<button class="btn btn-primary">
+										<i class="fa-solid fa-circle-info fa-xl"></i>
+									</button>
+								</RouterLink>
 							</div>
 							<div class="col-5">
 								<button class="btn btn-success" @click="cartStore.addItems(product)">Buy Now</button>
@@ -27,7 +29,7 @@
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 </template>
 
 <script lang="ts">
@@ -63,5 +65,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
