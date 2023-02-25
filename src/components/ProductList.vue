@@ -1,12 +1,12 @@
 <template>
-	<p>Ordered by {{ order }}</p>
 	<div class="container-lg">
 		<div class="row">
+			<p>Ordered by {{ order }}</p>
 			<div class="col-sm-6 col-lg-4 col-xl-3 g-2" v-for="product in orderedProducts" :key="product.id">
 				<div class="card" style="width: 18rem;">
-					<a href="#">
+					<RouterLink :to="`/product/${product.id}`">
 						<img :src="product.image" class="card-img-top" :alt="product.title">
-					</a>
+					</RouterLink>
 					<div class="card-body">
 						<h5 class="card-title">{{ product.title }}</h5>
 						<p class="card-text">Review: {{ product.rating.rate }}</p>
