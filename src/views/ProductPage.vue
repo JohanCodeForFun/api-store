@@ -6,7 +6,7 @@
 
 				<!-- show main product after route -->
 				<!-- working on getting product from route param -->
-				<div class="card" style="width: 18rem;">
+				<div v-if="product" class="card" style="width: 18rem;">
 					<a href="#">
 						<img :src="product?.image" class="card-img-top" :alt="product?.title">
 					</a>
@@ -29,6 +29,10 @@
 							</div>
 						</div>
 					</div>
+				</div>
+
+				<div v-else>
+					<h3>Product not found.</h3>
 				</div>
 
 				<h4>Other products in category...</h4>
